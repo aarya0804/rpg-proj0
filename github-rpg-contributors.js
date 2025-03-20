@@ -67,7 +67,7 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .rpg {
-          display: flex;
+          display: inline-flex;
         }
 
         .character-info p {
@@ -108,13 +108,15 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
           .filter((item, index) => index < this.limit)
           .map(
             (item) => html`
-              <p>${item.login}</p>
-              <rpg-character seed="${item.login}"></rpg-character>
-              <div class="character-info">
-                <p>${item.contributions}</p>
-                <p>${item.type}</p>
-                <p>${item.site_admin}</p>
-                <p>${item.id}</p>
+              <div class="character">
+                <p>${item.login}</p>
+                <rpg-character seed="${item.login}"></rpg-character>
+                <div class="character-info">
+                  <p>${item.contributions}</p>
+                  <p>${item.type}</p>
+                  <p>${item.site_admin}</p>
+                  <p>${item.id}</p>
+                </div>
               </div>
             `
           )}
