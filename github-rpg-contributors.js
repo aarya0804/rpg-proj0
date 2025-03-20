@@ -60,7 +60,10 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
           padding: var(--ddd-spacing-4);
         }
         h3 span {
-          font-size: var(--github-rpg-contributors-label-font-size, var(--ddd-font-size-s));
+          font-size: var(
+            --github-rpg-contributors-label-font-size,
+            var(--ddd-font-size-s)
+          );
         }
 
         .rpg {
@@ -92,7 +95,7 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    if (changedProperties.has("org")) {
+    if (changedProperties.has("org") || changedProperties.has("repo")) {
       this.getData();
     }
   }
@@ -100,23 +103,22 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html` <div class="wrapper">
-      <h3><span>${this.t.title}:</span> ${this.title}</h3>
-      ${this.items
-        .filter((item, index) => index < this.limit)
-        .map(
-          (item) => html`
-            <div class="rpg">
+      <div class="rpg">
+        ${this.items
+          .filter((item, index) => index < this.limit)
+          .map(
+            (item) => html`
+              <p>${item.login}</p>
               <rpg-character seed="${item.login}"></rpg-character>
               <div class="character-info">
-                <p>${item.login}</p>
                 <p>${item.contributions}</p>
                 <p>${item.type}</p>
                 <p>${item.site_admin}</p>
                 <p>${item.id}</p>
               </div>
-            </div>
-          `
-        )}
+            `
+          )}
+      </div>
       <slot></slot>
     </div>`;
   }
@@ -130,4 +132,7 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(GithubRPGContributors.tag, GithubRPGContributors);
+globalThis.customElements.define(
+  GithubRPGContributors.tag,
+  GithubRPGContributors
+);
