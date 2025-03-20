@@ -8,14 +8,14 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "@haxtheweb/rpg-character/rpg-character.js";
 
 /**
- * `rpg-proj0`
+ * `github-rpg-contributors`
  *
  * @demo index.html
- * @element rpg-proj0
+ * @element github-rpg-contributors
  */
-export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
+export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
   static get tag() {
-    return "rpg-proj0";
+    return "github-rpg-contributors";
   }
 
   constructor() {
@@ -30,12 +30,6 @@ export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
       ...this.t,
       title: "Title",
     };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/rpg-proj0.ar.json", import.meta.url).href + "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
   }
 
   // Lit reactive properties
@@ -66,11 +60,15 @@ export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
           padding: var(--ddd-spacing-4);
         }
         h3 span {
-          font-size: var(--rpg-proj0-label-font-size, var(--ddd-font-size-s));
+          font-size: var(--github-rpg-contributors-label-font-size, var(--ddd-font-size-s));
         }
 
         .rpg {
           display: flex;
+        }
+
+        .character-info p {
+          display: block;
         }
       `,
     ];
@@ -94,7 +92,7 @@ export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    if (changedProperties.has("items")) {
+    if (changedProperties.has("org")) {
       this.getData();
     }
   }
@@ -109,11 +107,13 @@ export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
           (item) => html`
             <div class="rpg">
               <rpg-character seed="${item.login}"></rpg-character>
-              <p>${item.login}</p>
-              <p>${item.contributions}</p>
-              <p>${item.type}</p>
-              <p>${item.site_admin}</p>
-              <p>${item.id}</p>
+              <div class="character-info">
+                <p>${item.login}</p>
+                <p>${item.contributions}</p>
+                <p>${item.type}</p>
+                <p>${item.site_admin}</p>
+                <p>${item.id}</p>
+              </div>
             </div>
           `
         )}
@@ -130,4 +130,4 @@ export class RpgProj0 extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(RpgProj0.tag, RpgProj0);
+globalThis.customElements.define(GithubRPGContributors.tag, GithubRPGContributors);

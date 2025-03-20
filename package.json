@@ -1,7 +1,7 @@
 {
-  "name": "rpg-proj0",
+  "name": "github-rpg-contributors",
   "version": "0.0.0",
-  "description": "Webcomponent rpg-proj0 following hax / open-wc recommendations",
+  "description": "Webcomponent github-rpg-contributors following hax / open-wc recommendations",
   "license": "Apache-2.0",
   "author": {
     "name": "aarya0804"
@@ -16,8 +16,8 @@
     "url": ""
   },
   "type": "module",
-  "main": "rpg-proj0.js",
-  "module": "rpg-proj0.js",
+  "main": "github-rpg-contributors.js",
+  "module": "github-rpg-contributors.js",
   "scripts": {
     "start": "web-dev-server",
     "build": "rimraf public && rollup -c rollup.config.js && npm run analyze",

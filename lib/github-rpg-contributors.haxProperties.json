@@ -11,7 +11,7 @@
         "designTreatment": false
     },
     "gizmo": {
-        "title": "rpg-proj0",
+        "title": "github-rpg-contributors",
         "description": "",
         "icon": "icons:android",
         "color": "purple",
@@ -41,7 +41,7 @@
     },
     "demoSchema": [
         {
-            "tag": "rpg-proj0",
+            "tag": "github-rpg-contributors",
             "properties": {
               "title": "Sample property title"
             },

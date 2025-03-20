@@ -1,13 +1,13 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import "../rpg-proj0.js";
+import "../github-rpg-contributors.js";
 
 describe("RpgProj0 test", () => {
   let element;
   beforeEach(async () => {
     element = await fixture(html`
-      <rpg-proj0
+      <github-rpg-contributors
         title="title"
-      ></rpg-proj0>
+      ></github-rpg-contributors>
     `);
   });
 
