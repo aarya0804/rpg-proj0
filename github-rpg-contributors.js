@@ -51,6 +51,7 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
+          width: 700px;
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
