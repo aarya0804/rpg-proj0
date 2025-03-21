@@ -59,6 +59,8 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
         .wrapper {
           margin: var(--ddd-spacing-2);
           padding: var(--ddd-spacing-4);
+          display: flex;
+          flex-direction: column;
         }
         h3 span {
           font-size: var(
@@ -68,11 +70,18 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .rpg {
-          display: inline-flex;
+          display: flex;
+          flex-wrap: wrap;
         }
 
         .character-info p {
           display: block;
+        }
+        p {
+          margin: var(--ddd-spacing-2);
+        }
+        .character {
+          margin: var(--ddd-spacing-8);
         }
       `,
     ];
@@ -111,11 +120,11 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
             (item) => html`
               <div class="character">
                 <p>${item.login}</p>
-                <rpg-character seed="${item.login}"></rpg-character>
+                <a href="${item.html_url}" target_blank="true">
+                  <rpg-character seed="${item.login}"></rpg-character>
+                </a>
                 <div class="character-info">
-                  <p>${item.contributions}</p>
-                  <p>${item.type}</p>
-                  <p>${item.site_admin}</p>
+                  <p>Contributions: ${item.contributions}</p>
                   <p>${item.id}</p>
                 </div>
               </div>
