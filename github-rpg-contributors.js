@@ -125,7 +125,7 @@ export class GithubRPGContributors extends DDDSuper(I18NMixin(LitElement)) {
                 </a>
                 <div class="character-info">
                   <p>Contributions: ${item.contributions}</p>
-                  <p>${item.id}</p>
+                  <p>ID: ${item.id}</p>
                 </div>
               </div>
             `
